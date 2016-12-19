@@ -2,6 +2,7 @@ package Panel;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,14 +16,6 @@ import model.Rain;
 public class RainPanel extends JPanel {
 
 	
-	//this is what the timer will repaint 
-	private class TimerHandler implements ActionListener
-	{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			repaint();//calls the paintComponent method
-		}
-	}// end timer handler
 	
 	
 	//for the animation
@@ -36,7 +29,8 @@ public class RainPanel extends JPanel {
 	
 	//constructor
 	public RainPanel() {
-		
+		//System.out.println("Made it to panel");
+		this.setBackground(Color.WHITE);
 		animationTimer.start();
 	
 	}
@@ -46,6 +40,24 @@ public class RainPanel extends JPanel {
 		super.paintComponent(g);
 		this.setBackground(Color.WHITE);
 		
-	}
+		for(Rain rain:rainarray)
+		{
+			rain.display(g, this);
+			
+		}
+		
+		
+	}//end paint comonent
+	
+	//this is what the timer will repaint 
+		private class TimerHandler implements ActionListener
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				repaint();//calls the paintComponent method
+				
+			}
+		}// end timer handler
+		
 
 }
