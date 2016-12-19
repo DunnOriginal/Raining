@@ -10,6 +10,8 @@ public class Main  {
 	//https://www.youtube.com/watch?v=KkyIDI6rQJI&t=373s&list=WL&index=32
 	
 	
+	//TODO: Try to make objects that the rain can interact with, make splash too
+	
 	
 	private JFrame frame;
 

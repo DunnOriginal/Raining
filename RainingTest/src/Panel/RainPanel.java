@@ -24,7 +24,7 @@ public class RainPanel extends JPanel {
 	
 
 	//make an array with 50 rain
-	static Rain[] rainarray = new Rain[50];
+	static Rain[] rainarray = new Rain[150];
 	Rain test = new Rain(this);
 	
 	

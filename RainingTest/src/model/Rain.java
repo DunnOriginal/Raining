@@ -26,6 +26,15 @@ public class Rain {
 	int yspeed ; // speed how they fall
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Rain(JPanel jp)
 	{
 		
