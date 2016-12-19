@@ -24,12 +24,30 @@ public class RainPanel extends JPanel {
 	
 
 	//make an array with 50 rain
-	Rain rainarray[] = new Rain[50];
+	static Rain[] rainarray = new Rain[50];
+	Rain test = new Rain(this);
+	
+	
+	
+		
+		
+	
 	
 	
 	//constructor
 	public RainPanel() {
 		//System.out.println("Made it to panel");
+		
+				//http://stackoverflow.com/questions/15105097/java-object-array-java-lang-nullpointerexception
+				/* This was needed it would keep spitting out null pointer exception*/
+		//Instantiating the objects present in the array
+		for(int i=0; i<  rainarray.length ; i++)
+		{
+		 rainarray[i] = new Rain(this);
+		}
+		
+		
+		
 		this.setBackground(Color.WHITE);
 		animationTimer.start();
 	
@@ -37,12 +55,15 @@ public class RainPanel extends JPanel {
 	
 	public void paintComponent(Graphics g)
 	{
+		
 		super.paintComponent(g);
 		this.setBackground(Color.WHITE);
+		//test.display(g, this);
 		
-		for(Rain rain:rainarray)
+		
+		for(int i=0; i < rainarray.length; i++)
 		{
-			rain.display(g, this);
+			rainarray[i].display(g, this);
 			
 		}
 		
@@ -52,7 +73,7 @@ public class RainPanel extends JPanel {
 	//this is what the timer will repaint 
 		private class TimerHandler implements ActionListener
 		{
-			@Override
+			
 			public void actionPerformed(ActionEvent e) {
 				repaint();//calls the paintComponent method
 				

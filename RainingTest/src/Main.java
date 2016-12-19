@@ -6,6 +6,11 @@ import Panel.RainPanel;
 
 public class Main  {
 
+	//The idea for this project
+	//https://www.youtube.com/watch?v=KkyIDI6rQJI&t=373s&list=WL&index=32
+	
+	
+	
 	private JFrame frame;
 
 	/**
