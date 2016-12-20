@@ -37,6 +37,8 @@ public class Rain {
 	
 	
 	
+	
+	
 	public Rain(JPanel jp)
 	{
 		
@@ -57,12 +59,6 @@ public class Rain {
 		
 		
 	}
-	
-	//http://stackoverflow.com/questions/11165055/drawline-using-double-variables-instead-of-integers
-	/*I used this because graphics wasnt
-	 * accepting my float types, so I found
-	 * using Line2D can figure my problem*/
-	Line2D line = new Line2D.Double();// didnt work with the overloading of Panel
 	
 	
 	//this is how the rain will fall
@@ -98,7 +94,7 @@ public class Rain {
 	{
 		fall(jp);
 		
-		line.setLine(startx, starty, endx, endy);
+		
 		g.setColor(Color.BLUE);
 		g.drawLine(startx, starty, endx, endy);
 		//g.draw(line);
@@ -116,5 +112,28 @@ public class Rain {
 		
 		//g.drawLine(startx,starty, endx, endy);
 		
+	}// end display
+	
+	
+	
+	// this is to Instantiate the classes in array
+	private void instantSplashArray()
+	{
+		int amount = random.nextInt(5);
+		for (Splash splash2 : splasharray)
+		{
+			splash2 = new Splash(this);
+		}
+	}// end method istantSplashArray
+	
+	 
+	//here we are going to null all the classes
+	private void nullSplasharay()
+	{
+		
 	}
-}
+	
+	
+	
+	
+}//end Rin class

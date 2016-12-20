@@ -26,40 +26,46 @@ public class Splash {
 	
 	public Splash(Rain rain)
 	{
-		startedy = rain.starty;
-		x= rain.startx ;
-		y= rain.starty;
+		
+		// TODO: Work on splashes
+		
+		
+		//where the splash started and make it dispaper if it gets far away from start point
+		startedy = rain.starty-20;
+		x= rain.startx;
+		y= rain.starty -20;
+		
+		// splash speed will depend on fall speed, but on goes in one way-- solve this
 		xspeed = rain.yspeed;
 	}
 	
 	
 	
-	public void splash()
+	public boolean splash()
 	{
 		
 		x+= xspeed;
 		y-=5;
 		
-		if (y -10 <  startedy )
+		if (y  -15 > startedy )
 		{
 			
 			//xspeed = rand.nextInt(10)-5;
 			//x =200;
 			//y= 200;
-			return;
+			return false;
 		}
 	
 		
-		
+		return true;
 	}
 	
 	
 	public void display(Graphics g, JPanel jp)
 	{
-		splash();
 		
 		g.setColor(Color.RED);
-		g.drawLine(x+xspeed, y, x, y+3);
+		g.drawLine(x+xspeed-2, y, x, y+3);
 		
 	}
 	
