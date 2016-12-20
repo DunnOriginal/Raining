@@ -19,17 +19,19 @@ public class Rain {
 	 * so the ends will be constant 
 	 * fir now as i want all lines to
 	 * be same sizes*/
-	int startx;
-	int starty;
-	int endx ;
-	int endy;
-	int yspeed ; // speed how they fall
+	public int startx;
+	public int starty;
+	public int endx ;
+	public int endy;
+	public int yspeed ; // speed how they fall
+	
+	public boolean splash;
 	
 	
 	
+	Splash[] splasharray = new Splash[5];
 	
-	
-	
+	Splash splash1;
 	
 	
 	
@@ -38,7 +40,11 @@ public class Rain {
 	public Rain(JPanel jp)
 	{
 		
-		Random random = new Random();
+		//Random random = new Random();
+		
+		
+		
+		
 		
 		//System.out.println(jp.getWidth()+1);
 		startx = random.nextInt(jp.getWidth()+1);
@@ -46,6 +52,8 @@ public class Rain {
 		endx = startx;
 		endy= random.nextInt(jp.getHeight()+1); ;
 		yspeed = random.nextInt(20)+1; // speed how they fall
+		
+		splash = false;
 		
 		
 	}
@@ -62,7 +70,7 @@ public class Rain {
 	{
 	
 		//If the Rain leaves the screen bring it back to top
-		if (starty-20 > jp.getWidth())
+		if (starty-20 > jp.getHeight())
 		{
 			//System.out.println(jp.getWidth()+1);
 			startx = random.nextInt(jp.getWidth()+1);
@@ -70,7 +78,14 @@ public class Rain {
 			endx = startx;
 			endy= starty + random.nextInt(30) ;
 			yspeed = random.nextInt(20)+8; // speed how they fall
+			//splash = false;
 		}
+		
+//		if (endy > jp.getHeight())
+//		{
+//			splash = true;
+//		}
+		
 		
 		starty+=yspeed;
 		endy += yspeed;
@@ -87,6 +102,17 @@ public class Rain {
 		g.setColor(Color.BLUE);
 		g.drawLine(startx, starty, endx, endy);
 		//g.draw(line);
+		
+		if (starty > jp.getHeight())
+		{
+			splash1 = new Splash(this);
+		}
+		
+		if (splash1 != null)
+		{
+			splash1.display(g, jp);
+		}
+				
 		
 		//g.drawLine(startx,starty, endx, endy);
 		

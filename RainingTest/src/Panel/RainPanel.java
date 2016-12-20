@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import model.Rain;
+import model.Splash;
 
 
 
@@ -24,22 +25,17 @@ public class RainPanel extends JPanel {
 	
 
 	//make an array with 50 rain
-	static Rain[] rainarray = new Rain[150];
+	static Rain[] rainarray = new Rain[1];
 	Rain test = new Rain(this);
-	
-	
+	Splash test2 = new Splash();
 	
 		
-		
-	
-	
 	
 	//constructor
 	public RainPanel() {
-		//System.out.println("Made it to panel");
 		
-				//http://stackoverflow.com/questions/15105097/java-object-array-java-lang-nullpointerexception
-				/* This was needed it would keep spitting out null pointer exception*/
+		//http://stackoverflow.com/questions/15105097/java-object-array-java-lang-nullpointerexception
+		/* This was needed it would keep spitting out null pointer exception*/
 		//Instantiating the objects present in the array
 		for(int i=0; i<  rainarray.length ; i++)
 		{
@@ -53,6 +49,8 @@ public class RainPanel extends JPanel {
 	
 	}
 	
+	
+	//display the rain fall
 	public void paintComponent(Graphics g)
 	{
 		
@@ -60,12 +58,24 @@ public class RainPanel extends JPanel {
 		this.setBackground(Color.WHITE);
 		//test.display(g, this);
 		
+		test.display(g, this);
+//		if (test.endy > -3){
+//			test2.display(g, this);
+//		}	
 		
-		for(int i=0; i < rainarray.length; i++)
-		{
-			rainarray[i].display(g, this);
-			
-		}
+//		for(int i=0; i < rainarray.length; i++)
+//		{
+//			rainarray[i].display(g, this);
+//			
+//			if (rainarray[i].endy > getHeight())
+//			{
+//				Splash splash = new Splash(rainarray[i]);
+//				splash.splash(g,this);
+//			}
+//			 
+//		
+//			
+//		}
 		
 		
 	}//end paint comonent
